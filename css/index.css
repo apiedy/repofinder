@@ -1,0 +1,14 @@
+.app{
+    width: 100%;
+}
+.thumbnail{
+    width: 60px;
+    height: auto;
+    padding: 3px;
+    border: 1px solid grey;
+    margin: 5px;
+    float: left;
+}
+.names{
+    color: grey;
+}
