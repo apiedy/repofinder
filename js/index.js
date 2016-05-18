@@ -14,8 +14,8 @@ $(document).ready(function(){
         var user_html='';
         var username= $('#search_input').val();
 
-        var user_url = 'https://api.github.com/users/'+username+'?client_id=xxxx&client_secret=yyyy';
-        var repo_url = 'https://api.github.com/users/'+username+'/repos?client_id=xxxx&client_secret=yyyy';
+        var user_url = 'https://api.github.com/users/'+username+'?client_id=92af465934529a7820c6&client_secret=6f7bf22e950b47a570ad7ac37f77bed664c7717e';
+        var repo_url = 'https://api.github.com/users/'+username+'/repos?client_id=92af465934529a7820c6&client_secret=6f7bf22e950b47a570ad7ac37f77bed664c7717e';
 
         $.ajax({
             url: repo_url,
@@ -29,9 +29,8 @@ $(document).ready(function(){
                         $("#userInfo").html(user_html);
                     }
                 });
-
                 $.each(response.data, function(i, item){
-                    search_html += '<li><h1><a href="'+this.html_url+'">'+this.name+'</a></h1><p class="names">By '+ this.login +'</p></li>'
+                    search_html += '<li><h1><a href="'+this.html_url+'" target="_blank">'+this.name+'</a></h1><p class="names">By '+ this.owner.login +'</p></li>'
                 });
                 $('#searchResults').append(search_html);
                 $('#searchResults').listview('refresh');
@@ -43,7 +42,7 @@ $(document).ready(function(){
 function getRepos(){
     var html = '';
     $.ajax({
-        url: "https://api.github.com/repositories?client_id=xxxx&client_secret=yyyy'",
+        url: "https://api.github.com/repositories?client_id=92af465934529a7820c6&client_secret=6f7bf22e950b47a570ad7ac37f77bed664c7717e'",
         dataType: "jsonp",
         success: function(response){
             $.each(response.data, function(i,item){
